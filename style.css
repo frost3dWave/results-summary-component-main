@@ -1,2 +1,240 @@
+:root{
+    --clr-red:hsl(0, 100%, 67%);
+    --clr-yellow:hsl(39, 100%, 56%);
+    --clr-teal:hsl(166, 100%, 37%);
+    --clr-cobalt_blue:hsl(234, 85%, 45%);
+    --clr-white:hsl(0, 0%, 100%);
+    --clr-pale_blue:hsl(221, 100%, 96%);
+    --clr-light_lavender:hsl(241, 100%, 89%);
+    --clr-dark_grey_blue:hsl(224, 30%, 27%);
+
+    --grd-slate_blue:hsl(252, 100%, 67%);
+    --grd-royal_blue:hsl(241, 81%, 54%);
+    --grd-voilet_blue:hsla(256, 72%, 46%, 1);
+    --grd-persian_vblue:hsla(241, 72%, 46%, 0);
+
+    --font-sans-serif:"Hanken Grotesk";
+}
+
+/* CSS RESET */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+/* MAIN CSS  */
+body {
+    background-color: var(--clr-white);
+    color: var(--clr-light_lavender);
+    font-family: var(--font-sans-serif);
+    font-weight: 500;
+    text-align: center;
+}
+
+.card-component {
+    min-height: 100dvh;
+}
+
+.display-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:0.8rem;
+    background: linear-gradient(var(--grd-slate_blue), var(--grd-royal_blue));
+    padding-block: 1.5rem;
+    padding-inline: 2rem;
+    border-bottom-right-radius: 1.75rem;
+    border-bottom-left-radius: 1.75rem;
+    h2 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+    .result {
+        background: linear-gradient( var(--grd-voilet_blue), var(--grd-persian_vblue));
+        border-radius: 50%;
+        max-width:max-content;
+        padding-block: 1rem;
+        padding-inline: 2.5rem;
+        .result_number {
+            font-size: 3rem;
+            color: var(--clr-white);
+        }
+        p:nth-child(2) {
+            font-size: 1rem;
+        }
+    }
+    .result_grade {
+        font-size: 1.5rem;
+        color: var(--clr-white);
+
+    }
+    .remark {
+        font-size: 1rem;
+        max-width: 30ch;
+        margin-top: -0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.details-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+
+  h2 {
+    font-size: 1.125rem;
+    align-self: self-start;
+    color:var(--clr-dark_grey_blue);
+    margin-bottom: 0.5rem;
+  }
+
+  .reaction, 
+  .memory,
+  .verbal,
+  .visual {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+
+    .reaction_heading,
+    .memory_heading,
+    .verbal_heading,
+    .visual_heading {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+  .reaction {
+    background-color: hsla(0, 100%, 67%, 0.1);
+  }
+  .reaction_heading{
+    color: var(--clr-red);
+  }
+  .memory{
+    background-color: hsla(39, 100%, 56%, 0.1);
+  }
+  .memory_heading{
+    color: var(--clr-yellow);
+  }
+  .verbal{
+    background-color: hsla(166, 100%, 37%, 0.1);
+  }
+  .verbal_heading{
+    color: var(--clr-teal);
+  }
+  .visual{
+    background-color: hsla(234, 85%, 45%, 0.1);
+  }
+  .visual_heading{
+    color: var(--clr-cobalt_blue);
+  }
+
+  .reaction_score,
+  .memory_score,
+  .verbal_score,
+  .visual_score{
+    p {
+      font-weight: 700;
+    }
+    span {
+      color: var(--clr-dark_grey_blue);
+    }
+  }
+
+  button{
+    min-width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: var(--clr-dark_grey_blue);
+    color: var(--clr-white);
+    margin-top: 0.6rem;
+  }
+  button:hover{
+    background: linear-gradient(var(--grd-slate_blue), var(--grd-royal_blue));
+    cursor: pointer;
+  }
+}
+
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
