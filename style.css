@@ -111,22 +111,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:0.8rem;
+    gap: clamp(0.8rem, 0.4786rem + 1.6071vw, 1.25rem);
     background: linear-gradient(var(--grd-slate_blue), var(--grd-royal_blue));
-    padding-block: 1.5rem;
+    padding-block: clamp(1.5rem, 1.3214rem + 0.8929vw, 1.75rem);
     padding-inline: 2rem;
     border-bottom-right-radius: 1.75rem;
     border-bottom-left-radius: 1.75rem;
     h2 {
-        font-size: 1.125rem;
-        margin-bottom: 0.5rem;
+        font-size: clamp(1.125rem, 1.0357rem + 0.4464vw, 1.25rem);
+        margin-bottom: clamp(0.5rem, 0.3214rem + 0.8929vw, 0.75rem);
     }
     .result {
         background: linear-gradient( var(--grd-voilet_blue), var(--grd-persian_vblue));
         border-radius: 50%;
         max-width:max-content;
-        padding-block: 1rem;
-        padding-inline: 2.5rem;
+        padding-block: clamp(1rem, 0.6429rem + 1.7857vw, 1.5rem);
+        padding-inline: clamp(2.5rem, 2.1429rem + 1.7857vw, 3rem);
         .result_number {
             font-size: 3rem;
             color: var(--clr-white);
@@ -136,7 +136,7 @@ body {
         }
     }
     .result_grade {
-        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 1.3214rem + 0.8929vw, 1.75rem);
         color: var(--clr-white);
 
     }
@@ -154,8 +154,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding-block: 1rem;
-  padding-inline: 2rem;
+  padding-block: clamp(1rem, 0.6429rem + 1.7857vw, 1.5rem);
+  padding-inline: clamp(2rem, 1.4643rem + 2.6786vw, 2.75rem);
 
   h2 {
     font-size: 1.125rem;
@@ -174,7 +174,7 @@ body {
     gap: 1rem;
     min-width: 100%;
     padding: 0.75rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 
     .reaction_heading,
     .memory_heading,
@@ -231,10 +231,29 @@ body {
     margin-top: 0.6rem;
   }
   button:hover{
+    border: none;
     background: linear-gradient(var(--grd-slate_blue), var(--grd-royal_blue));
     cursor: pointer;
   }
 }
 
-.attribution { font-size: 11px; text-align: center; }
+@media (min-width: 48rem){
+  .card-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-pale_blue);
+  }
+  .display-component{
+    max-width: 19.75rem;
+    border-radius: 1.75rem;
+    transform: translateX(18px);
+  }
+  .details-component {
+    min-width: 20rem;
+    background-color: var(--clr-white);
+  }
+}
+
+.attribution { font-size: 0.6875rem; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
